@@ -1,0 +1,62 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --background: #04040f;
+  --foreground: #e8eaf6;
+}
+
+body {
+  color: var(--foreground);
+  background: var(--background);
+  font-family: system-ui, -apple-system, sans-serif;
+}
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+
+  /* Space theme — subtle blue/purple glow for hero text */
+  .glow-text {
+    text-shadow:
+      0 0 40px rgba(139, 92, 246, 0.4),
+      0 0 80px rgba(99, 102, 241, 0.2);
+  }
+
+  /* Space theme — glowing border on hover */
+  .glow-border {
+    box-shadow: 0 0 0 1px rgba(139, 92, 246, 0.3);
+  }
+  .glow-border:hover {
+    box-shadow: 0 0 0 1px rgba(139, 92, 246, 0.7), 0 0 16px rgba(139, 92, 246, 0.2);
+  }
+
+  /* Mars theme — glassy card */
+  .mars-glass {
+    background: rgba(20, 8, 4, 0.72);
+    backdrop-filter: blur(18px);
+    -webkit-backdrop-filter: blur(18px);
+    border: 1px solid rgba(194, 82, 30, 0.3);
+    box-shadow:
+      0 0 0 1px rgba(194, 82, 30, 0.1),
+      0 8px 32px rgba(0, 0, 0, 0.6);
+  }
+
+  /* Mars theme — input focus glow */
+  .mars-input {
+    background: rgba(10, 4, 2, 0.6);
+    border: 1px solid rgba(120, 50, 20, 0.5);
+    color: #f5e6d8;
+    transition: border-color 0.2s, box-shadow 0.2s;
+  }
+  .mars-input:focus {
+    outline: none;
+    border-color: rgba(210, 100, 40, 0.8);
+    box-shadow: 0 0 0 2px rgba(194, 82, 30, 0.2);
+  }
+  .mars-input::placeholder {
+    color: rgba(160, 100, 70, 0.6);
+  }
+}
