@@ -4,23 +4,24 @@ import { loadSlim } from '@tsparticles/slim'
 import type { Engine } from '@tsparticles/engine'
 import type { ISourceOptions } from '@tsparticles/engine'
 
-const particleOptions: ISourceOptions = {
+const marsOptions: ISourceOptions = {
   background: { color: { value: 'transparent' } },
   particles: {
-    number: { value: 160, density: { enable: true } },
-    color: { value: ['#ffffff', '#c7d2fe', '#a5b4fc', '#e0e7ff'] },
+    number: { value: 90, density: { enable: true } },
+    color: { value: ['#c2521e', '#e07840', '#a0400e', '#d4824a', '#8b3510'] },
     opacity: {
-      value: { min: 0.05, max: 0.8 },
-      animation: { enable: true, speed: 0.6, sync: false },
+      value: { min: 0.04, max: 0.55 },
+      animation: { enable: true, speed: 0.4, sync: false },
     },
-    size: { value: { min: 0.4, max: 2.2 } },
+    size: { value: { min: 0.5, max: 3.5 } },
     move: {
       enable: true,
-      speed: 0.15,
-      direction: 'none',
+      speed: 0.35,
+      direction: 'right',
       random: true,
       straight: false,
       outModes: 'out',
+      drift: 0.4,
     },
     links: { enable: false },
   },
@@ -31,13 +32,13 @@ async function initEngine(engine: Engine) {
   await loadSlim(engine)
 }
 
-export default function ParticleBackground() {
+export default function MarsParticleBackground() {
   return (
     <ParticlesProvider init={initEngine}>
       <Particles
-        id="tsparticles"
+        id="mars-particles"
         className="absolute inset-0 z-0"
-        options={particleOptions}
+        options={marsOptions}
       />
     </ParticlesProvider>
   )
